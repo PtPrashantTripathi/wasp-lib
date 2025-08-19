@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./logo/wasp_lib_logo.png" alt="🐝 wasp-lib" width="420"/>
+  <img src="https://raw.githubusercontent.com/PtPrashantTripathi/wasp-lib/main/logo/wasp_lib_logo.png" alt="🐝 wasp-lib" width="420"/>
 
   <h3><em>“Hexagon speed, wasp-lib precision, powered by WASM.”</em></h3>
 

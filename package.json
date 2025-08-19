@@ -1,0 +1,68 @@
+{
+    "name": "wasp-lib",
+    "version": "1.1.12",
+    "description": "A lightweight library for type-safe interaction with Emscripten-generated WebAssembly memory.",
+    "keywords": [
+        "typescript",
+        "utility",
+        "array",
+        "tuple",
+        "typesafe",
+        "emscripten",
+        "webassembly",
+        "wasm"
+    ],
+    "homepage": "https://github.com/ptprashanttripathi/wasp-lib",
+    "bugs": {
+        "url": "https://github.com/ptprashanttripathi/wasp-lib/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ptprashanttripathi/wasp-lib.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Pt. Prashant Tripathi",
+        "url": "https://github.com/ptprashanttripathi",
+        "githubUsername": "ptprashanttripathi"
+    },
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": ["dist"],
+    "scripts": {
+        "build": "tsc",
+        "build:wasm": "make",
+        "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+        "lint": "eslint . --fix",
+        "test": "vitest",
+        "test:coverage": "vitest --coverage",
+        "test:watch": "vitest --watch",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "fixed-len-array": "^1.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "latest",
+        "@types/emscripten": "latest",
+        "@typescript-eslint/parser": "latest",
+        "@vitest/coverage-v8": "latest",
+        "eslint": "latest",
+        "eslint-config-prettier": "latest",
+        "eslint-plugin-simple-import-sort": "latest",
+        "eslint-plugin-unused-imports": "latest",
+        "globals": "latest",
+        "prettier": "latest",
+        "prettier-plugin-jsdoc": "latest",
+        "typescript": "latest",
+        "typescript-eslint": "latest",
+        "vite": "latest",
+        "vitest": "latest"
+    },
+    "engines": {
+        "node": ">=22"
+    },
+    "typeScriptVersion": "latest"
+}

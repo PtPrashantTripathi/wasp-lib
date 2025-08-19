@@ -1,0 +1,8 @@
+# Ignore artifacts:
+/dist
+/node_modules
+/coverage
+
+# Ignore generated wasm files
+/test/module.wasm
+/test/module.js
