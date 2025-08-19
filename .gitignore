@@ -23,11 +23,10 @@ lerna-debug.log*
 *.sln
 *.sw?
 
-# # Compiled test files
-# /test/test_module.wasm
-# /test/test_module.js
+# Compiled test files
+/test/test_module.wasm
+/test/test_module.js
 
 # OS generated files
 .DS_Store
 Thumbs.db
-
