@@ -11,6 +11,9 @@ jobs:
   lint-test:
     name: Lint and Test
     runs-on: ubuntu-latest
+    permissions:        # 👈 Needed for PR comment
+      contents: read
+      pull-requests: write
 
     steps:
       # Checkout the repository
@@ -45,16 +48,16 @@ jobs:
       - name: Run tests
         run: npm run test:coverage
 
-      # Upload coverage artifacts (optional but useful)
+      # Upload coverage artifacts (optional, for debugging or downloads)
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage
 
-      # Coverage report in PR using Vitest coverage action
+      # Comment coverage summary in PR
       - name: Report coverage in PR
         uses: davelosert/vitest-coverage-report-action@v2
         with:
           json-summary-path: coverage/coverage-summary.json
-          lcov-path: coverage/lcov.info
+          json-final-path: coverage/coverage-final.json
