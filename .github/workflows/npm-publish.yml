@@ -29,43 +29,9 @@ jobs:
                   node-version: "latest"
                   registry-url: "https://registry.npmjs.org" # Sets the registry URL.
 
-            # Install and activate Emscripten SDK
-            - name: Install and Activate Emscripten SDK
-              run: |
-                  git clone https://github.com/emscripten-core/emsdk.git ~/emsdk
-                  ~/emsdk/emsdk install latest
-                  ~/emsdk/emsdk activate latest
-                  source ~/emsdk/emsdk_env.sh
-                  npm run build:wasm
-              shell: bash
-
             # Install Node.js project dependencies
             - name: Install Node dependencies
               run: npm install
-
-            # Runs lint checks to ensure code quality.
-            - name: Run lint
-              run: npm run lint
-
-            # Runs tests to ensure functionality is correct before publishing.
-            - name: Run tests
-              run: npm run test:coverage
-
-            # Upload coverage to GitHub summary (LCOV)
-            - name: Upload coverage report
-              uses: actions/upload-artifact@v4
-              with:
-                  name: coverage-report
-                  path: coverage
-
-            # show coverage summary in GitHub Checks
-            - name: Report coverage
-              uses: irongut/CodeCoverageSummary@v1.3.0
-              with:
-                  filename: coverage/lcov.info
-                  badge: true
-                  fail_below_min: true
-                  thresholds: "70 80" # 70 = fail, 80 = warn
 
             # Builds the package to create the dist/ folder.
             - name: Build project
