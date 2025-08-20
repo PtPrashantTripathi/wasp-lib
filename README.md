@@ -14,7 +14,10 @@
   </p>
 </div>
 
+
 ## 🎯 What is wasp-lib?
+
+> 🐝 **W.A.S.P.** stands for **Web Assembly Safe Pointers**
 
 **wasp-lib** is a powerful TypeScript library that bridges the gap between
 JavaScript and WebAssembly memory management. It transforms complex, error-prone
