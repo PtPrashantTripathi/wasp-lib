@@ -1,7 +1,7 @@
 {
     "name": "wasp-lib",
     "version": "1.1.12",
-    "description": "A lightweight library for type-safe interaction with Emscripten-generated WebAssembly memory.",
+    "description": "WASP (Web Assembly Safe Pointers) — a lightweight TypeScript library for type-safe interaction with Emscripten-generated WebAssembly memory."
     "keywords": [
         "typescript",
         "utility",
