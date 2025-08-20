@@ -71,9 +71,6 @@ export interface WASMModule {
      */
     lengthBytesUTF8: typeof lengthBytesUTF8;
 
-    /** Provides access to the Emscripten virtual file system. */
-    FS: typeof FS;
-
     /**
      * Frees allocated memory in the WebAssembly heap.
      *
@@ -92,6 +89,4 @@ export interface WASMModule {
      * @returns A pointer to the beginning of the allocated memory block.
      */
     _malloc(size: number): number;
-
-    cwrap: typeof cwrap;
 }

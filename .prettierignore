@@ -1,8 +1,42 @@
-# Ignore artifacts:
-/dist
-/node_modules
-/coverage
+# Project-specific folders/files
+public/database
+*.se1
+*.webmanifest
+*.ico
+*.png
 
-# Ignore generated wasm files
-/test/module.wasm
-/test/module.js
+# Source files to ignore for formatting
+*.c
+*.csv
+*.h
+*.ipynb
+*.min.js
+*.py
+*.txt
+
+# Ignore editor and config files
+.editorconfig
+.gitattributes
+.gitignore
+.prettierignore
+
+# Dependencies and build artifacts
+node_modules
+dist
+out
+build
+
+# Testing
+coverage
+
+# OS/system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.pem
+
+# Changelog
+CHANGELOG.md
+
+# Lock files
+package-lock.json

@@ -1,6 +1,6 @@
 {
     "name": "wasp-lib",
-    "version": "1.1.12",
+    "version": "1.2.22",
     "description": "WASP (Web Assembly Safe Pointers) - a lightweight TypeScript library for type-safe interaction with Emscripten-generated WebAssembly memory.",
     "keywords": [
         "typescript",
@@ -31,10 +31,7 @@
         "githubUsername": "ptprashanttripathi"
     },
     "type": "module",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
-    "types": "dist/index.d.ts",
-    "files": ["dist"],
+    "main": "src/index.ts",
     "scripts": {
         "build": "tsc",
         "build:wasm": "make",
@@ -46,7 +43,7 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "fixed-len-array": "^1.0.0"
+        "fixed-len-array": "latest"
     },
     "devDependencies": {
         "@eslint/js": "latest",
@@ -62,7 +59,6 @@
         "prettier-plugin-jsdoc": "latest",
         "typescript": "latest",
         "typescript-eslint": "latest",
-        "vite": "latest",
         "vitest": "latest"
     },
     "engines": {

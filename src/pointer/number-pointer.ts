@@ -1,4 +1,4 @@
-import { C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
+import { type C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
 import { BasePointer } from "./base-pointer";
 
 /** Class representing a single number allocated in WASM memory. */

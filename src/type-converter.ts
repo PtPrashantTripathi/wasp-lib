@@ -1,8 +1,8 @@
 import {
-    C_BoolType,
-    C_CharType,
+    type C_BoolType,
+    type C_CharType,
     C_FALSE,
-    C_NumberType,
+    type C_NumberType,
     C_TRUE,
     C_TYPE_SIZES,
 } from "./types";

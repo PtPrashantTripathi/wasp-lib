@@ -1,18 +1,34 @@
 {
     "compilerOptions": {
-        "rootDir": "./src",
-        "outDir": "./dist",
-        "module": "esnext",
-        "target": "esnext",
-        "lib": ["ESNext"],
-        "declaration": true,
-        "strict": true,
+        /* Base Options: */
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "node",
-        "typeRoots": ["./node_modules/@types"]
+        "target": "es2022",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "moduleDetection": "force",
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
+        /* Strictness */
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        /* If transpiling with TypeScript: */
+        "module": "ESNext",
+        "outDir": "dist",
+        "rootDir": "src",
+        /* AND if you're building for a library: */
+        "declaration": true,
+        "useDefineForClassFields": true,
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        /* Linting */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "erasableSyntaxOnly": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true
     },
-    "include": ["src/index.ts"],
-    "exclude": ["node_modules", "dist", "test/index.test.ts"]
+    "include": ["src"],
+    "exclude": ["node_modules", "dist", "test"]
 }

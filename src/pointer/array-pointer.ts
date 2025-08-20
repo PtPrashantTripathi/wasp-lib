@@ -1,6 +1,6 @@
-import { FixedLengthArray, toFixedLengthArray } from "fixed-len-array";
+import { type FixedLengthArray, toFixedLengthArray } from "fixed-len-array";
 
-import { C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
+import { type C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
 import { BasePointer } from "./base-pointer";
 
 /** A class representing a typed numeric array in WASM memory. */
