@@ -1,7 +1,8 @@
 /**
  * @file Comprehensive test suite for wasp-lib library.
  *
- *   This test suite validates all functionality of the wasp-lib library including:
+ *   This test suite validates all functionality of the wasp-lib library
+ *   including:
  *
  *   - Memory management operations
  *   - Type-safe pointer operations

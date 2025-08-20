@@ -14,7 +14,6 @@
   </p>
 </div>
 
-
 ## 🎯 What is wasp-lib?
 
 > 🐝 **W.A.S.P.** stands for **Web Assembly Safe Pointers**
