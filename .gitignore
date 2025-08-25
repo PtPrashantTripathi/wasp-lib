@@ -142,9 +142,6 @@ vite.config.ts.timestamp-*
 # python
 __pycache__
 
-# Compiled test files
-/test/test_module.wasm
-/test/test_module.js
 # OS generated files
 .DS_Store
 Thumbs.db

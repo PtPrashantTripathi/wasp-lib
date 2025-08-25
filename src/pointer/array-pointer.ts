@@ -1,6 +1,7 @@
 import { type FixedLengthArray, toFixedLengthArray } from "fixed-len-array";
 
 import { type C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
+
 import { BasePointer } from "./base-pointer";
 
 /** A class representing a typed numeric array in WASM memory. */
@@ -71,7 +72,7 @@ export class ArrayPointer<
      * @param val - Numeric value to write.
      * @throws If index is out of bounds.
      */
-    add(loc: number, val: T extends "i64" ? bigint : number) {
+    add(loc: number, val: T extends "i64" ? bigint : number): void {
         this.validatePointer();
         if (loc >= 0 && loc < this.length) {
             this.wasm.setValue(

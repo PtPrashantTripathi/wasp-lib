@@ -1,5 +1,6 @@
 import { TypeConverter } from "../type-converter";
 import { type C_BoolType, C_TYPE_SIZES, type WASMModule } from "../types";
+
 import { BasePointer } from "./base-pointer";
 
 /** Pointer wrapper for C-style booleans in WASM memory */

@@ -1,4 +1,5 @@
 import { type C_NumberType, C_TYPE_SIZES, type WASMModule } from "../types";
+
 import { BasePointer } from "./base-pointer";
 
 /** Class representing a single number allocated in WASM memory. */
@@ -68,7 +69,7 @@ export class NumberPointer<T extends C_NumberType> extends BasePointer<
      * @param val - Numeric value to write.
      * @throws If index is out of bounds.
      */
-    add(val: T extends "i64" ? bigint : number) {
+    add(val: T extends "i64" ? bigint : number): void {
         this.validatePointer();
         this.wasm.setValue(
             this.ptr,

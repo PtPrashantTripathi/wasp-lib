@@ -1,6 +1,6 @@
 {
     "name": "wasp-lib",
-    "version": "1.2.22",
+    "version": "1.10.22",
     "description": "WASP (Web Assembly Safe Pointers) - a lightweight TypeScript library for type-safe interaction with Emscripten-generated WebAssembly memory.",
     "keywords": [
         "typescript",
@@ -14,15 +14,18 @@
         "ffi",
         "typesafe",
         "wasm-helper",
-        "web-assembly-safe-pointers"
+        "web-assembly-safe-pointers",
+        "memory-management",
+        "pointers",
+        "zero-dependency"
     ],
-    "homepage": "https://github.com/ptprashanttripathi/wasp-lib",
+    "homepage": "https://github.com/PtPrashantTripathi/wasp-lib#readme",
     "bugs": {
-        "url": "https://github.com/ptprashanttripathi/wasp-lib/issues"
+        "url": "https://github.com/PtPrashantTripathi/wasp-lib/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ptprashanttripathi/wasp-lib.git"
+        "url": "https://github.com/PtPrashantTripathi/wasp-lib.git"
     },
     "license": "MIT",
     "author": {
@@ -31,14 +34,33 @@
         "githubUsername": "ptprashanttripathi"
     },
     "type": "module",
-    "main": "src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.es.js",
+            "require": "./dist/index.cjs.js"
+        }
+    },
+    "main": "./dist/index.cjs.js",
+    "module": "./dist/index.es.js",
+    "types": "./dist/index.d.ts",
+    "files": ["dist", "README.md", "LICENSE"],
     "scripts": {
-        "build": "tsc",
-        "build:wasm": "make",
+        "build": "vite build",
+        "build:types": "tsc --emitDeclarationOnly",
+        "clean": "rm -rf dist coverage docs/.vitepress/dist",
+        "dev": "vite build --watch",
+        "docs:build": "vitepress build docs",
+        "docs": "vitepress dev docs",
+        "docs:preview": "vitepress preview docs",
         "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+        "format:check": "prettier --check \"**/*.{ts,js,json,md,yml}\"",
         "lint": "eslint . --fix",
+        "lint:check": "eslint .",
         "test": "vitest",
         "test:coverage": "vitest --coverage",
+        "test:run": "vitest run",
+        "test:ui": "vitest --ui",
         "test:watch": "vitest --watch",
         "typecheck": "tsc --noEmit"
     },
@@ -48,17 +70,27 @@
     "devDependencies": {
         "@eslint/js": "latest",
         "@types/emscripten": "latest",
-        "@typescript-eslint/parser": "latest",
+        "@types/node": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+
         "@vitest/coverage-v8": "latest",
+        "@vitest/ui": "latest",
+
         "eslint": "latest",
         "eslint-config-prettier": "latest",
+
         "eslint-plugin-simple-import-sort": "latest",
         "eslint-plugin-unused-imports": "latest",
         "globals": "latest",
+        "jsdom": "^26.1.0",
         "prettier": "latest",
         "prettier-plugin-jsdoc": "latest",
+
         "typescript": "latest",
         "typescript-eslint": "latest",
+        "vite": "latest",
+        "vite-plugin-dts": "latest",
+        "vitepress": "latest",
         "vitest": "latest"
     },
     "engines": {

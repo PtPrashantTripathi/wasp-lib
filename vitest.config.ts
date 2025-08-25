@@ -4,6 +4,7 @@ export default defineConfig({
     test: {
         typecheck: {
             tsconfig: "./tsconfig.json",
+            enabled: true,
         },
         coverage: {
             reporter: ["text", "lcov", "json-summary", "json"],
@@ -11,7 +12,7 @@ export default defineConfig({
             thresholds: {
                 lines: 80, // Minimum % of lines covered
                 functions: 80, // Minimum % of functions covered
-                branches: 70, // Minimum % of branches covered
+                branches: 80, // Minimum % of branches covered
                 statements: 80, // Minimum % of statements covered
             },
         },
