@@ -10,7 +10,7 @@ export default defineConfig({
             "link",
             {
                 rel: "icon",
-                href: "./logo/wasp_lib.ico",
+                href: "https://raw.githubusercontent.com/PtPrashantTripathi/wasp-lib/refs/heads/main/logo/wasp_lib.ico",
             },
         ],
         ["meta", { name: "theme-color", content: "#ffcc02" }],
