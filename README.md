@@ -10,9 +10,15 @@
     <a href="https://github.com/ptprashanttripathi/wasp-lib/actions"><img src="https://img.shields.io/github/actions/workflow/status/ptprashanttripathi/wasp-lib/npm-publish.yml?branch=main" alt="Build Status"/></a>
     <a href="https://github.com/ptprashanttripathi/wasp-lib/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/wasp-lib.svg" alt="MIT License"/></a>
     <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Ready-blue.svg" alt="TypeScript Ready"/></a>
-    <a href="https://github.com/ptprashanttripathi/wasp-lib/blob/main/docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Documentation"/></a>
+    <a href="https://ptprashanttripathi.github.io/wasp-lib/"><img src="https://img.shields.io/badge/docs-online-brightgreen.svg" alt="Documentation"/></a>
+  </p>
+
+  <p>
+    📖 <a href="https://ptprashanttripathi.github.io/wasp-lib/">Read the full Documentation here</a>
   </p>
 </div>
+
+---
 
 ## 🎯 What is wasp-lib?
 
@@ -22,6 +28,7 @@
 JavaScript and WebAssembly memory management. It transforms complex, error-prone
 manual memory operations into simple, type-safe method calls, making WebAssembly
 integration as easy as working with native JavaScript objects.
+
 
 ### The Problem
 
