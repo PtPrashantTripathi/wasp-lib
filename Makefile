@@ -4,13 +4,13 @@
 EMCC = emcc
 
 # Source file paths
-C_SOURCE = ./test/test_module.c
+C_SOURCE = ./test/test_module/test.c
 
 # Output WASM file paths
-WASM_OUTPUT = ./test/test_module.wasm
+WASM_OUTPUT = ./test/test_module/test_module.wasm
 
 # Output JS file paths (glue code)
-JS_OUTPUT = ./test/test_module.js
+JS_OUTPUT = ./test/test_module/test_module.js
 
 # Emscripten compiler flags
 EM_FLAGS = -s WASM=1 \
