@@ -47,6 +47,7 @@
     "files": ["dist", "README.md", "LICENSE"],
     "scripts": {
         "build": "vite build",
+        "build:wasm": "make",
         "build:types": "tsc --emitDeclarationOnly",
         "clean": "rm -rf dist coverage docs/.vitepress/dist",
         "dev": "vite build --watch",
