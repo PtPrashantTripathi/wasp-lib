@@ -1,5 +1,4 @@
 // This file configures Prettier, a code formatter.
-
 export default {
     plugins: ["prettier-plugin-jsdoc"],
     arrowParens: "avoid",

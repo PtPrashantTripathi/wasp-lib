@@ -1,0 +1,66 @@
+# Workflow: Build and Deploy Doc site to GitHub Pages
+name: Deploy Docs
+
+on:
+    # Allow manual trigger from GitHub Actions UI
+    workflow_dispatch:
+    # Trigger only when changes happen in docs/ folder on main branch
+    push:
+        branches: [main]
+        paths:
+            - "docs/**"
+
+# Permissions needed for GitHub Pages
+permissions:
+    contents: read # Read repository contents
+    pages: write # Deploy to GitHub Pages
+    id-token: write # Required for OIDC auth
+
+# Prevent overlapping deployments
+concurrency:
+    group: "pages-deployments"
+    cancel-in-progress: false
+
+jobs:
+    deploy:
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout repository
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 1
+
+            # Setup GitHub Pages
+            - name: Setup GitHub Pages
+              uses: actions/configure-pages@v5
+
+            # Setup Node.js
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "lts/*"
+
+            # Install dependencies
+            - name: Install Dependencies
+              run: npm ci
+
+            # Build VitePress docs
+            - name: Build VitePress Site
+              run: npm run docs:build
+
+            # Upload built site as artifact
+            - name: Upload Build Artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: docs/.vitepress/dist
+                  retention-days: 5
+
+            # Deploy to GitHub Pages
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

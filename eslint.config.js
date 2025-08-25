@@ -8,7 +8,7 @@ import ts from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
 
 export default ts.config([
-    globalIgnores(["dist", "node_modules"]),
+    globalIgnores(["dist", "node_modules", "docs/.vitepress/cache"]),
     {
         files: ["**/*.ts"],
         extends: [prettier, js.configs.recommended, ts.configs.recommended],
@@ -18,15 +18,24 @@ export default ts.config([
 
             globals: globals.browser,
         },
+
         plugins: {
             "unused-imports": unusedImports,
             "simple-import-sort": simpleImportSort,
         },
 
         rules: {
-            // "no-console": "warn",
+            // General rules
             "no-unused-vars": "off",
-            "@typescript-eslint/no-unused-vars": "off",
+            "prefer-const": "error",
+            "no-var": "error",
+            "no-console": "warn",
+
+            // TypeScript specific rules
+            "@typescript-eslint/explicit-function-return-type": "error",
+            "@typescript-eslint/no-explicit-any": "error",
+
+            // Unused imports plugin
             "unused-imports/no-unused-imports": "warn",
             "unused-imports/no-unused-vars": [
                 "warn",
@@ -37,25 +46,44 @@ export default ts.config([
                     argsIgnorePattern: "^_",
                 },
             ],
+
+            // Import sorting
             "simple-import-sort/exports": "warn",
-            "simple-import-sort/imports": "warn",
+            "simple-import-sort/imports": [
+                "warn",
+                {
+                    groups: [
+                        // External packages
+                        ["^@?\\w"],
+                        // Internal packages
+                        ["^(@|components)(/.*|$)"],
+                        // Side effect imports
+                        ["^\\u0000"],
+                        // Parent imports
+                        ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                        // Other relative imports
+                        ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                        // Style imports
+                        ["^.+\\.?(css)$"],
+                    ],
+                },
+            ],
 
-            "no-var": "warn",
+            // Code quality rules
             "object-shorthand": ["warn", "properties"],
-
             eqeqeq: ["error", "always", { null: "ignore" }],
-
             "lines-between-class-members": [
                 "error",
                 "always",
                 { exceptAfterSingleLine: true },
             ],
-
             "spaced-comment": [
                 "error",
                 "always",
                 {
-                    line: { markers: ["*package", "!", "/", ",", "="] },
+                    line: {
+                        markers: ["*package", "!", "/", ",", "="],
+                    },
                     block: {
                         balanced: true,
                         markers: [
@@ -70,7 +98,12 @@ export default ts.config([
                     },
                 },
             ],
-            // "symbol-description": "error",
+            "symbol-description": "error",
+
+            // Disable conflicting rules for Prettier
+            "max-len": "off",
+            quotes: "off",
+            semi: "off",
         },
     },
 ]);
