@@ -4,7 +4,7 @@ export default defineConfig({
     title: "wasp-lib",
     description:
         "Web Assembly Safe Pointers - Type-safe WebAssembly memory management",
-    base: ".",
+    base: "/wasp-lib/",
     head: [
         [
             "link",
@@ -43,7 +43,6 @@ export default defineConfig({
             {
                 text: "v2.0.0",
                 items: [
-                    // { text: "Changelog", link: "/changelog" },
                     { text: "Contributing", link: "/community/contributing" },
                 ],
             },
