@@ -1,3 +1,7 @@
+# Ignore all JS and WASM files in test_module
+test/test_module/*.js
+test/test_module/*.wasm
+
 # Logs
 logs
 *.log
