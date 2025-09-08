@@ -5,37 +5,34 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import js from "@eslint/js";
 import ts from "typescript-eslint";
-import { globalIgnores } from "eslint/config";
+import { globalIgnores, defineConfig } from "eslint/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-export default ts.config([
-    globalIgnores(["dist", "node_modules", "docs/.vitepress/cache"]),
+export default defineConfig([
+    globalIgnores(["dist", "node_modules"]),
     {
-        files: ["**/*.ts"],
+        files: ["**/*.ts", "**/*.tsx"],
         extends: [prettier, js.configs.recommended, ts.configs.recommended],
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "module",
 
             globals: globals.browser,
+            parserOptions: {
+                project: "./tsconfig.json",
+                tsconfigRootDir: path.dirname(fileURLToPath(import.meta.url)),
+            },
         },
-
         plugins: {
             "unused-imports": unusedImports,
             "simple-import-sort": simpleImportSort,
         },
 
         rules: {
-            // General rules
+            // "no-console": "warn",
             "no-unused-vars": "off",
-            "prefer-const": "error",
-            "no-var": "error",
-            "no-console": "warn",
-
-            // TypeScript specific rules
-            "@typescript-eslint/explicit-function-return-type": "error",
-            "@typescript-eslint/no-explicit-any": "error",
-
-            // Unused imports plugin
+            "@typescript-eslint/no-unused-vars": "off",
             "unused-imports/no-unused-imports": "warn",
             "unused-imports/no-unused-vars": [
                 "warn",
@@ -46,44 +43,25 @@ export default ts.config([
                     argsIgnorePattern: "^_",
                 },
             ],
-
-            // Import sorting
             "simple-import-sort/exports": "warn",
-            "simple-import-sort/imports": [
-                "warn",
-                {
-                    groups: [
-                        // External packages
-                        ["^@?\\w"],
-                        // Internal packages
-                        ["^(@|components)(/.*|$)"],
-                        // Side effect imports
-                        ["^\\u0000"],
-                        // Parent imports
-                        ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-                        // Other relative imports
-                        ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-                        // Style imports
-                        ["^.+\\.?(css)$"],
-                    ],
-                },
-            ],
+            "simple-import-sort/imports": "warn",
 
-            // Code quality rules
+            "no-var": "warn",
             "object-shorthand": ["warn", "properties"],
-            eqeqeq: ["error", "always", { null: "ignore" }],
+
+            eqeqeq: ["warn", "always", { null: "ignore" }],
+
             "lines-between-class-members": [
-                "error",
+                "warn",
                 "always",
                 { exceptAfterSingleLine: true },
             ],
+
             "spaced-comment": [
-                "error",
+                "warn",
                 "always",
                 {
-                    line: {
-                        markers: ["*package", "!", "/", ",", "="],
-                    },
+                    line: { markers: ["*package", "!", "/", ",", "="] },
                     block: {
                         balanced: true,
                         markers: [
@@ -98,12 +76,36 @@ export default ts.config([
                     },
                 },
             ],
-            "symbol-description": "error",
+            "no-unexpected-multiline": "warn",
+            "no-warning-comments": [
+                "warn",
+                { terms: ["FIXME"], location: "anywhere" },
+            ],
+            "@typescript-eslint/no-unused-vars": [
+                "warn",
+                {
+                    args: "after-used",
+                    argsIgnorePattern: "^_",
+                    ignoreRestSiblings: true,
+                    varsIgnorePattern: "^ignored",
+                },
+            ],
+            "@typescript-eslint/no-import-type-side-effects": "warn",
+            "@typescript-eslint/consistent-type-imports": [
+                "warn",
+                {
+                    prefer: "type-imports",
+                    disallowTypeAnnotations: true,
+                    fixStyle: "inline-type-imports",
+                },
+            ],
 
-            // Disable conflicting rules for Prettier
-            "max-len": "off",
-            quotes: "off",
-            semi: "off",
+            "@typescript-eslint/no-misused-promises": [
+                "warn",
+                { checksVoidReturn: false },
+            ],
+
+            // "symbol-description": "warn",
         },
     },
 ]);

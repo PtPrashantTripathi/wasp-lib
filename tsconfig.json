@@ -1,6 +1,10 @@
 {
+    "build": {
+        "minify": true
+    },
     "compilerOptions": {
         "allowJs": true,
+        "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "declaration": true,
         "declarationMap": true,
@@ -9,26 +13,31 @@
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": ["ES2020", "DOM"],
+        "incremental": true,
+        "lib": ["ESNext", "DOM", "DOM.Iterable"],
         "module": "ESNext",
-        "moduleResolution": "node",
-        "noEmitOnError": true,
+        "moduleResolution": "bundler",
+        "noEmit": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
         "noUncheckedIndexedAccess": true,
         "noUncheckedSideEffectImports": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "outDir": "./dist",
         "preserveConstEnums": true,
         "removeComments": false,
-        "rootDir": "./src",
+        "paths": {
+            "src/*": ["src/*"]
+        },
+        "resolveJsonModule": true,
         "skipLibCheck": true,
         "sourceMap": true,
         "strict": true,
-        "target": "ES2020",
+        "target": "ESNext",
+        "typeRoots": ["./node_modules/@types"],
+        "useDefineForClassFields": true,
         "verbatimModuleSyntax": true
     },
-    "exclude": ["node_modules", "dist", "tests", "docs"],
-    "include": ["src"]
+    "exclude": ["node_modules", "dist"],
+    "include": ["**/*.ts", "docs/.vitepress/config.ts"]
 }

@@ -29,7 +29,6 @@ JavaScript and WebAssembly memory management. It transforms complex, error-prone
 manual memory operations into simple, type-safe method calls, making WebAssembly
 integration as easy as working with native JavaScript objects.
 
-
 ### The Problem
 
 Working with WebAssembly memory directly is challenging:
@@ -496,6 +495,20 @@ const defaultPtr = BoolPointer.alloc(wasm);
 console.log(defaultPtr.read()); // false
 
 [boolPtr, defaultPtr].forEach(ptr => ptr.free());
+```
+
+#### `NullPointer`
+
+A special pointer that **always points to `0`**, representing a safe "no memory"
+state within the pointer system. This is useful when an API requires a pointer
+instance, but you want to **explicitly indicate the absence of allocated
+memory** without using `null` or `undefined`.
+
+**Example:**
+
+```typescript
+const nullPtr = new NullPointer();
+console.log(nullPtr.ptr); // 0
 ```
 
 ### Utility Classes

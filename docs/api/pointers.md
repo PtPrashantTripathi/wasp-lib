@@ -112,3 +112,22 @@ boolPtr.write(false);
 const isTrue = boolPtr.read(); // false
 boolPtr.free();
 ```
+
+## `NullPointer`
+
+A special pointer that **always points to `0`**, representing a safe "no memory"
+state within the pointer system. This is useful when an API requires a pointer
+instance, but you want to **explicitly indicate the absence of allocated
+memory** without using `null` or `undefined`.
+
+- **`constructor()`**: Creates a new `NullPointer` instance with no WASM memory
+  allocation.
+- **`read()`**: Always throws an error because a `NullPointer` cannot read
+  memory.
+
+### Example
+
+```typescript
+const nullPtr = new NullPointer();
+console.log(nullPtr.ptr); // 0
+```

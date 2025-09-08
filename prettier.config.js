@@ -1,4 +1,7 @@
-// This file configures Prettier, a code formatter.
+/**
+ * @type {import("prettier").Config}
+ * @see https://prettier.io/docs/configuration
+ */
 export default {
     plugins: ["prettier-plugin-jsdoc"],
     arrowParens: "avoid",
@@ -26,7 +29,19 @@ export default {
             },
         },
         {
-            files: "*.json",
+            files: "*.html",
+            options: {
+                parser: "html",
+            },
+        },
+        {
+            files: "*.css",
+            options: {
+                parser: "css",
+            },
+        },
+        {
+            files: ["*.json", "*.webmanifest"],
             options: {
                 parser: "json",
             },

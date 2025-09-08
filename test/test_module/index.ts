@@ -1,5 +1,4 @@
 import type { WASMModule } from "../../src";
-
 import Module from "./test_module";
 
 /**

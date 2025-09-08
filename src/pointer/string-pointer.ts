@@ -1,5 +1,4 @@
 import { C_TYPE_SIZES, type WASMModule } from "../types";
-
 import { BasePointer } from "./base-pointer";
 
 /** Class representing a UTF-8 string allocated in WASM memory. */
@@ -73,6 +72,6 @@ export class StringPointer<
      */
     read(): string {
         this.validatePointer();
-        return this.wasm.UTF8ToString(this.ptr);
+        return this.wasm.UTF8ToString(this.ptr, this.length);
     }
 }

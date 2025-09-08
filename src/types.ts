@@ -34,12 +34,12 @@ export const C_FALSE: C_BoolType = 0;
  * pointer arithmetic.
  */
 export const C_TYPE_SIZES: Readonly<Record<C_NumberType, number>> = {
-    i8: 1,
-    i16: 2,
-    i32: 4,
-    i64: 8,
-    float: 4,
-    double: 8,
+    i8: Int8Array.BYTES_PER_ELEMENT,
+    i16: Int16Array.BYTES_PER_ELEMENT,
+    i32: Int32Array.BYTES_PER_ELEMENT,
+    i64: BigInt64Array.BYTES_PER_ELEMENT,
+    float: Float32Array.BYTES_PER_ELEMENT,
+    double: Float64Array.BYTES_PER_ELEMENT,
 } as const;
 
 /**
