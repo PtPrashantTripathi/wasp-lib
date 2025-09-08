@@ -2,7 +2,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { ArrayPointer } from "../src";
-
 import { getModule, type WASMTestsModule } from "./test_module";
 
 describe("ArrayPointer Class", () => {

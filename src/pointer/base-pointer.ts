@@ -1,4 +1,4 @@
-import { type WASMModule } from "../types";
+import type { WASMModule } from "../types";
 
 /**
  * @author Pt. Prashant Tripathi
@@ -141,15 +141,4 @@ export abstract class BasePointer<T = unknown> {
     toString(): string {
         return `${this.constructor.name}(ptr=${this._ptr}, valid=${this.isValid})`;
     }
-
-    /**
-     * Finalizer that ensures memory is freed when object is garbage collected.
-     *
-     * Note: This is a safety net - you should still call free() explicitly for
-     * deterministic memory management.
-     *
-     * @private
-     */
-    // Note: FinalizationRegistry would go here in a real implementation
-    // but we keep it simple for this example
 }

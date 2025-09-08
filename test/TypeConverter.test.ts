@@ -2,7 +2,7 @@
 import { describe, expect, it } from "vitest";
 
 import { C_FALSE, C_TRUE, TypeConverter } from "../src/";
-import { C_NumberType, C_TYPE_SIZES } from "../src/types";
+import { type C_NumberType, C_TYPE_SIZES } from "../src/types";
 
 describe("TypeConverter Utility Functions", () => {
     describe("Boolean Conversions", () => {

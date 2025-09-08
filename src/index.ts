@@ -17,6 +17,7 @@ import { ArrayPointer } from "./pointer/array-pointer";
 import { BasePointer } from "./pointer/base-pointer";
 import { BoolPointer } from "./pointer/bool-pointer";
 import { CharPointer } from "./pointer/char-pointer";
+import { NullPointer } from "./pointer/null-pointer";
 import { NumberPointer } from "./pointer/number-pointer";
 import { StringPointer } from "./pointer/string-pointer";
 import { TypeConverter } from "./type-converter";
@@ -39,8 +40,9 @@ export {
     C_FALSE,
     type C_NumberType,
     C_TRUE,
+    C_TYPE_SIZES,
     CharPointer,
-    C_TYPE_SIZES as NUMBER_TYPE_SIZES,
+    NullPointer,
     NumberPointer,
     StringPointer,
     TypeConverter,

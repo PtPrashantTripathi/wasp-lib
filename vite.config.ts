@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -7,7 +8,16 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, "src/index.ts"),
             name: "WaspLib",
-            fileName: format => `index.${format}.js`,
+            fileName: format => {
+                switch (format) {
+                    case "cjs":
+                        return "index.cjs";
+                    case "es":
+                        return "index.mjs";
+                    default:
+                        return `index.${format}.js`;
+                }
+            },
             formats: ["es", "cjs", "umd"],
         },
         rollupOptions: {
@@ -25,7 +35,7 @@ export default defineConfig({
             insertTypesEntry: true,
             outDir: "dist",
             include: ["src/**/*"],
-            exclude: ["tests/**/*", "docs/**/*"],
+            exclude: ["test/**/*", "docs/**/*"],
         }),
     ],
     resolve: {

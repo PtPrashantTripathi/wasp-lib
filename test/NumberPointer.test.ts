@@ -2,7 +2,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { NumberPointer } from "../src";
-
 import { getModule, type WASMTestsModule } from "./test_module";
 
 describe("NumberPointer Class", () => {
