@@ -32,6 +32,7 @@ export default defineConfig({
     },
     plugins: [
         dts({
+            rollupTypes: true,
             insertTypesEntry: true,
             outDir: "dist",
             include: ["src/**/*"],

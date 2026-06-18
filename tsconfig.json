@@ -35,6 +35,7 @@
         "strict": true,
         "target": "ESNext",
         "typeRoots": ["./node_modules/@types"],
+        "types": ["emscripten"],
         "useDefineForClassFields": true,
         "verbatimModuleSyntax": true
     },
